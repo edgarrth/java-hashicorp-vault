@@ -1,0 +1,21 @@
+### Crear pago: usa Transit para cifrar PAN y credenciales dinámicas PostgreSQL para persistir
+POST http://localhost:8080/payments/v1/payments
+Content-Type: application/json
+
+{
+  "merchantId": "mrc-001",
+  "amount": 120.50,
+  "currency": "USD",
+  "cardPan": "4111111111111111"
+}
+
+### Response 201
+# {
+#   "id": "...",
+#   "merchantId": "mrc-001",
+#   "amount": 120.50,
+#   "currency": "USD",
+#   "maskedCard": "411111******1111",
+#   "status": "AUTHORIZED",
+#   "createdAt": "..."
+# }

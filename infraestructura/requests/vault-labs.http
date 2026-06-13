@@ -1,0 +1,23 @@
+### KV Secrets Engine
+GET http://localhost:8080/security/v1/vault-labs/kv
+
+### Transit encrypt
+POST http://localhost:8080/security/v1/vault-labs/transit/encrypt
+Content-Type: application/json
+
+{"text":"4111111111111111"}
+
+### Transit decrypt
+POST http://localhost:8080/security/v1/vault-labs/transit/decrypt
+Content-Type: application/json
+
+{"ciphertext":"vault:v1:REEMPLAZAR"}
+
+### Dynamic database credentials
+GET http://localhost:8080/security/v1/vault-labs/database/credentials
+
+### PKI certificate issue
+POST http://localhost:8080/security/v1/vault-labs/pki/certificates
+Content-Type: application/json
+
+{"commonName":"api.payment.local"}
