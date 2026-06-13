@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: secure-java-vault-poc
+server:
+  port: 8080
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+vault:
+  url: ${VAULT_ADDR:http://localhost:8200}
+  token: ${VAULT_TOKEN:root}
+  kvPath: secret/data/payment-processing/dev
+  transitKey: payment-card-key
+  pkiRole: payment-service
+  dbRole: payment-service-role
+app:
+  jdbcBaseUrl: jdbc:postgresql://${POSTGRES_HOST:localhost}:${POSTGRES_PORT:5432}/paymentdb

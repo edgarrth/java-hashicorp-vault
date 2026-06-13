@@ -1,0 +1,3 @@
+package com.edgar.vaultpoc.application.usecase;
+import com.edgar.vaultpoc.domain.model.Payment;import com.edgar.vaultpoc.domain.ports.PaymentRepositoryPort;import com.edgar.vaultpoc.domain.ports.SecretManagerPort;import org.springframework.stereotype.Service;import java.math.BigDecimal;
+@Service public class CreatePaymentUseCase{private final SecretManagerPort secrets;private final PaymentRepositoryPort repository;public CreatePaymentUseCase(SecretManagerPort s,PaymentRepositoryPort r){this.secrets=s;this.repository=r;}public Payment execute(String merchantId,BigDecimal amount,String currency,String cardPan){String encryptedPan=secrets.encrypt(cardPan);Payment p=Payment.create(merchantId,amount,currency,cardPan,encryptedPan);return repository.save(p);}}
