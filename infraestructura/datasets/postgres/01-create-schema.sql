@@ -1,0 +1,2 @@
+CREATE TABLE customers(customer_id VARCHAR(20) PRIMARY KEY,full_name VARCHAR(100),email VARCHAR(100));
+CREATE TABLE payments(payment_id VARCHAR(20) PRIMARY KEY,customer_id VARCHAR(20),amount NUMERIC(12,2),currency VARCHAR(3),encrypted_card_token VARCHAR(500),status VARCHAR(20));
